@@ -87,11 +87,12 @@
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/ngx-markdoc-docs"],
           "options": {
-            "jestConfig": "apps/ngx-markdoc-docs/jest.config.js",
+            "jestConfig": "apps/ngx-markdoc-docs/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "ngx-markdoc-docs-e2e": {
       "root": "apps/ngx-markdoc-docs-e2e",
@@ -118,39 +119,9 @@
             "lintFilePatterns": ["apps/ngx-markdoc-docs-e2e/**/*.{js,ts}"]
           }
         }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "packageManager": "npm"
-  },
-  "schematics": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
       },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "style": "css",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "css",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "css"
+      "tags": [],
+      "implicitDependencies": ["ngx-markdoc-docs"]
     }
-  },
-  "defaultProject": "ngx-markdoc-docs"
+  }
 }
