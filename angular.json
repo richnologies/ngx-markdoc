@@ -1,6 +1,48 @@
 {
   "version": 1,
   "projects": {
+    "ngx-markdoc": {
+      "projectType": "library",
+      "root": "libs/ngx-markdoc",
+      "sourceRoot": "libs/ngx-markdoc/src",
+      "prefix": "ngx-markdoc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/ngx-markdoc"],
+          "options": {
+            "project": "libs/ngx-markdoc/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ngx-markdoc/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/ngx-markdoc/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ngx-markdoc"],
+          "options": {
+            "jestConfig": "libs/ngx-markdoc/jest.config.ts",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ngx-markdoc/**/*.ts",
+              "libs/ngx-markdoc/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
     "ngx-markdoc-docs": {
       "projectType": "application",
       "root": "apps/ngx-markdoc-docs",
